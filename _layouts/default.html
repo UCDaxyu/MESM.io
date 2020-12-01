@@ -2,16 +2,16 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
 <nav role="navigation" id="site-nav" class="nav">
-    <ul>
+
 	{% for link in site.data.navigation %}
-		    {% if link.url contains 'http' %}
-			{% assign domain = '' %}
-			{% else %}
-			{% assign domain = site.github.url %}
-		    {% endif %}
-		    <a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %} class="btn">{ link.title }</a>
-		{% endfor %}
-    </ul>
+	    {% if link.url contains 'http' %}
+		{% assign domain = '' %}
+		{% else %}
+		{% assign domain = site.github.url %}
+	    {% endif %}
+	    <a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %} class="btn">{ link.title }</a>
+	{% endfor %}
+
 </nav>
     {% if site.google_analytics %}
       <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
