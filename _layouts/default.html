@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-
+<nav role="navigation" id="site-nav" class="nav">
+    <ul>
+	{% for link in site.data.navigation %}
+		    {% if link.url contains 'http' %}
+			{% assign domain = '' %}
+			{% else %}
+			{% assign domain = site.github.url %}
+		    {% endif %}
+		    <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+		{% endfor %}
+    </ul>
+</nav>
     {% if site.google_analytics %}
       <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
       <script>
@@ -32,16 +43,6 @@
         <a href="{{ site.github.zip_url }}" class="btn">Alex's downloads .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
       {% endif %}
-      <ul>
-	{% for link in site.data.navigation %}
-	    {% if link.url contains 'http' %}
-		{% assign domain = '' %}
-		{% else %}
-		{% assign domain = site.github.url %}
-	    {% endif %}
-	    <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
-	{% endfor %}
-    	</ul>
     </header>
 
     <main id="content" class="main-content" role="main">
