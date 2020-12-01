@@ -9,7 +9,7 @@
 			{% else %}
 			{% assign domain = site.github.url %}
 		    {% endif %}
-		    <a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %} class="btn">{{ link.title }}</a>
+		    <a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %} class="btn">{ link.title }</a>
 		{% endfor %}
     </ul>
 </nav>
